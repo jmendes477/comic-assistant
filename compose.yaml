@@ -1,0 +1,25 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    environment:
+      COMIC_ASSISTANT_API_URL: ${COMIC_ASSISTANT_API_URL:-}
+      COMIC_ASSISTANT_PUBLIC_KEY: ${COMIC_ASSISTANT_PUBLIC_KEY:-}
+      COMIC_ASSISTANT_PRIVATE_KEY: ${COMIC_ASSISTANT_PRIVATE_KEY:-}
+      PORT: "8080"
+      DATA_FILE: /data/library.json
+    ports:
+      - "8080:8080"
+    volumes:
+      - comic-assistant-data:/data
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
+
+volumes:
+  comic-assistant-data:

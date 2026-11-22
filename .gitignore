@@ -1,0 +1,28 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Go build and test outputs
+/backend/comic-assistant
+/backend/*.exe
+/backend/*.test
+/backend/coverage.out
+/backend/vendor/
+
+# Node.js dependencies and build output
+**/node_modules/
+**/dist/
+**/coverage/
+*.tsbuildinfo
+npm-debug.log*
+
+# Local comic library data
+/data/library.json
+/data/library.json.tmp
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
